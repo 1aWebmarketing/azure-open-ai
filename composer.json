@@ -1,0 +1,26 @@
+{
+  "name": "oneawebmarketing/azure-open-ai",
+  "description": "PHP wrapper class to use OpenAI with Microsoft Azure.",
+  "version": "1.0.0",
+  "homepage": "https://github.com/1awebmarketing/azure-open-ai",
+  "license": "BSD-2-Clause",
+  "authors": [
+    {
+      "name": "1awebmarketing",
+      "homepage": "https://1awebmarketing.de"
+    }
+  ],
+  "support": {
+    "issues": "https://github.com/1awebmarketing/azure-open-ai"
+  },
+  "autoload": {
+    "psr-4": {
+      "AzureOpenAi\\": "src/AzureOpenAi/"
+    }
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "require": {
+    "guzzlehttp/guzzle": "^7.9"
+  }
+}

@@ -74,6 +74,16 @@ $response = $client->chat([
 ]);
 ```
 
+### Image generation
+
+```php
+$response = $client->image([
+     'prompt' => 'Create an image of a squirrel looking into the camera i can use as avatar'
+ ]);
+
+file_put_contents('output.png', base64_decode($response->data[0]->b64_json));
+```
+
 ## Error Handling
 
 The client returns a standard object. In case of errors, the response will contain an `error` property:

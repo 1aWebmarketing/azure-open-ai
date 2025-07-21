@@ -45,4 +45,19 @@ final class Client
             return $obj;
         }
     }
+
+    public function image(array $options): object
+    {
+        try {
+            $response = $this->client->post("images/generations?api-version={$this->apiVersion}", [
+                'json' => $options,
+            ]);
+
+            return json_decode($response->getBody()->getContents());
+        } catch (GuzzleException $e) {
+            $obj = new StdClass();
+            $obj->error = $e->getMessage();
+            return $obj;
+        }
+    }
 }

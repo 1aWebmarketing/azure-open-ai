@@ -60,4 +60,29 @@ final class Client
             return $obj;
         }
     }
+
+    public function edits(string $imagePath, string $prompt): object
+    {
+        try {
+            $response = $this->client->post("images/edits?api-version={$this->apiVersion}", [
+                'multipart' => [
+                    [
+                        'name'     => 'image',
+                        'contents' => (file_get_contents($imagePath)),
+                        'filename' => 'image.png',
+                    ],
+                    [
+                        'name'     => 'prompt',
+                        'contents' => $prompt,
+                    ],
+                ],
+            ]);
+
+            return json_decode($response->getBody()->getContents());
+        } catch (GuzzleException $e) {
+            $obj = new StdClass();
+            $obj->error = $e->getMessage();
+            return $obj;
+        }
+    }
 }
